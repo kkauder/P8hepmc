@@ -1,3 +1,9 @@
+# Executable
+PythiaHepMC
+
+# output files
+*.dat
+
 # Prerequisites
 *.d
 
