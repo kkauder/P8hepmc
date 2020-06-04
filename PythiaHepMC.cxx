@@ -21,6 +21,8 @@ int main ()
   p8.readString("PDF:lepton = off");
   p8.readString("TimeShower:QEDshowerByL=off");
   p8.readString("SpaceShower:pTmaxMatch=2");
+  p8.readString("SpaceShower:dipoleRecoil=on");
+
 
   // ISR, hadronization, etc.
   p8.readString("HadronLevel:Decay = off");
