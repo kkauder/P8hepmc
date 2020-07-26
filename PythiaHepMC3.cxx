@@ -25,8 +25,10 @@ int main ()
   // Species 
   p8.readString("Beams:idA = 2212"); // proton
   p8.readString("Beams:idB = 11");   // electron
-  p8.readString("Beams:eA  = 920");  // 100 GeV proton
-  p8.readString("Beams:eB  = 27l5");   // 10 GeV electron
+  // p8.readString("Beams:eA  = 920");  // 100 GeV proton
+  // p8.readString("Beams:eB  = 27l5");   // 10 GeV electron
+  p8.readString("Beams:eA  = 250");  // 100 GeV proton
+  p8.readString("Beams:eB  = 20");   // 10 GeV electron
   p8.readString("Beams:frameType = 2");
 
   p8.readString("Main:timesAllowErrors = 10000"); // allow more errors, eP is brittle
@@ -86,6 +88,8 @@ int main ()
   std::shared_ptr<GenRunInfo> run = std::make_shared<GenRunInfo>();
   struct GenRunInfo::ToolInfo generator={std::string("Pythia8"),std::to_string(PYTHIA_VERSION).substr(0,5),std::string("Used generator")};
   run->tools().push_back(generator);
+  // Can be used to save the name of the control card, if
+  // pythia.readFile( ...) is used
   // struct GenRunInfo::ToolInfo config={std::string(argv[1]),"1.0",std::string("Control cards")};
   // run->tools().push_back(config);
   std::vector<std::string> names;
@@ -96,6 +100,7 @@ int main ()
   }
   if (!names.size()) names.push_back("default");
   run->set_weight_names(names);
+  // WriterAscii file("nc_hepmc3.out",run);
   WriterAscii file("dis_hepmc3.out",run);
   
   // Run

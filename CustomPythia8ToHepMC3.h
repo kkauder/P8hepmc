@@ -113,12 +113,15 @@ public:
         evt->reserve( hepevt_particles.size(), vertex_cache.size() );
 
         // Add particles and vertices in topological order
-        if (beam_particles.size()!=2) {
-	  // std::cerr << "There are  " << beam_particles.size() <<"!=2 particles without mothers"<< std::endl;
+        // if (beam_particles.size()!=2) {
+	// my pythia8 at least always produces three beam particles (beam object (90) and the actual beams)
+	// this is also true for the pp minbias example included in hepmc3
+	if (beam_particles.size()!=3) {
+	  std::cerr << "There are  " << beam_particles.size() <<"!=2 particles without mothers"<< std::endl;
 	  // for ( auto bp : beam_particles ){
 	  //   std::cout << bp->pid() << std::endl;
 	  // }
-	  // if ( m_crash_on_problem ) exit(1);
+	  if ( m_crash_on_problem ) exit(1);
         }
         evt->add_tree( beam_particles );
         //Attributes should be set after adding the particles to event
