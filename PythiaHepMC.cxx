@@ -30,8 +30,8 @@ int main ()
   p8.readString("Beams:eB  = 20");    // electron energy in GeV
   p8.readString("Beams:frameType = 2");
 
-  // string basename = "nc";
-  string basename = "dis";
+  string basename = "nc";
+  // string basename = "dis";
   
   p8.readString("Main:timesAllowErrors = 10000"); // allow more errors, eP is brittle
   // p8.readString("WeakBosonExchange:ff2ff(t:W) = on"); //  charged-current DIS
@@ -67,7 +67,7 @@ int main ()
 
   p8.readString("Next:numberShowInfo = 1"); 
   p8.readString("Next:numberShowProcess = 1"); 
-  p8.readString("Next:numberShowEvent = 1"); 
+  p8.readString("Next:numberShowEvent = 5"); 
 
   // Random seed
   p8.readString("Random:setSeed = on");
