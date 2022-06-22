@@ -53,7 +53,7 @@ int main ()
   // More Process details
   // ISR, hadronization, etc.
   p8.readString("HadronLevel:Decay = off");
-  p8.readString("HadronLevel:all = on");
+  p8.readString("HadronLevel:all = off");
   p8.readString("PartonLevel:ISR = off");
   p8.readString("PartonLevel:MPI = off");
   p8.readString("PartonLevel:FSR = off");
@@ -72,7 +72,10 @@ int main ()
   // Random seed
   p8.readString("Random:setSeed = on");
   p8.readString("Random:seed = 42");
-  
+
+  p8.settings.listAll();
+  return 0;
+      
   // initialize
   p8.init();
 
